@@ -18,6 +18,10 @@
         <h2>View Note</h2>
         <br>
         <br>
-        <h
+        <h3>Title:</h3>
+        <br>
+        <br>
+        <h3>Contents</h3>
+        <a href="note?edit">
     </body>
 </html>
