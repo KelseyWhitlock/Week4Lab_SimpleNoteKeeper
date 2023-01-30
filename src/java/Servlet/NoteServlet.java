@@ -28,7 +28,7 @@ public class NoteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
            try{
-            String path = getServletContext().getRealPath("/WEB-INF/viewnote.jsp");
+            String path = getServletContext().getRealPath("/WEB-INF/note.txt");
             //to read files
             BufferedReader br = new BufferedReader(new FileReader(new File(path)));
             String title = br.readLine();
@@ -48,9 +48,13 @@ public class NoteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     getServletContext().getRealPath("/WEB-INF/viewnote.jsp");
-     //write a file
-     PrintWriter pw = new PrinterWriter(new BufferedWriter(new FileWriter(path,false)));
+        String title = request.getParameter("title");
+        String contents = request.getParameter("contents");
+        String path = getServletContext().getRealPath("/WEB-INF/note.txt");
+        //writing in a file
+         PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path,false)));
+         pw.println(title);
+         
             
          
           getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
