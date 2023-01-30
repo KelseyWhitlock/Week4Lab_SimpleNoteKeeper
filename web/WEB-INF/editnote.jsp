@@ -18,10 +18,10 @@
         <h2>Edit Note</h2>
         <br>
         <br>
-        <form method="post" action="note?page=view">
+        <form>
         Title: <input type="text" name="title" value="${note.title}">
         <br><br>
-        Contents: <input type="textarea" name="cotents" cols="25" value="${note.contents}">
+        Contents: <textarea name="cotents" role="5" cols="25" ${note.contents}> </textarea>
         <br>
         <input type="sumbit" name="sumbit" value="Save">
         </form>
