@@ -37,8 +37,7 @@ public class NoteServlet extends HttpServlet {
             request.setAttribute("note",note);
             br.close();
         }catch(Exception e){
-            if(String )
-            
+            request.setAttribute("message", "This can't be empty");    
         }
            
        getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
