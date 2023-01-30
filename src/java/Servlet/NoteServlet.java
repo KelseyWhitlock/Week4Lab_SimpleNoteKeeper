@@ -27,6 +27,11 @@ public class NoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String message = request.getParameter("Edit");
+        if(message != null){
+            getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
+                .forward(request, response); 
+        }
            try{
             String path = getServletContext().getRealPath("/WEB-INF/note.txt");
             //to read files
@@ -37,10 +42,10 @@ public class NoteServlet extends HttpServlet {
             request.setAttribute("note",note);
             br.close();
         }catch(Exception e){
-            request.setAttribute("message", "This can't be empty");    
+             
         }
            
-       getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
+       getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp")
                 .forward(request, response);     
     }
 
@@ -54,11 +59,12 @@ public class NoteServlet extends HttpServlet {
         //writing in a file
          PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path,false)));
          pw.println(title);
-         
-            
-         
+         pw.print(contents);
+          Note note = new Note(title, contents);
+          request.setAttribute("note",note);
           getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
                 .forward(request, response);
+          pw.close();
     }
 
    
