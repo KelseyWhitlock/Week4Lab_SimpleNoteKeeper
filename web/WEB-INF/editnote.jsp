@@ -16,5 +16,14 @@
         <br>
         <br>
         <h2>Edit Note</h2>
+        <br>
+        <br>
+        <form>
+        Title: <input type="text" name="title" value>
+        <br><br>
+        Contents: <input type="textarea" name="cotents" cols="25" value>
+        <br>
+        <input type="sumbit" name="sumbit" value="Save">
+        </form>
     </body>
 </html>
