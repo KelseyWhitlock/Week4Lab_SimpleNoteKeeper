@@ -23,7 +23,7 @@
         <br><br>
         Contents: <textarea name="cotents" role="5" cols="25" ${note.contents}> </textarea>
         <br>
-        <input type="sumbit" name="sumbit" value="Save">
+        <input type="submit" name="submit" value="Save">
         </form>
     </body>
 </html>
