@@ -43,7 +43,7 @@ public class NoteServlet extends HttpServlet {
             Note note = new Note(title, contents);
             request.setAttribute("note",note);
             br.close();
-        }catch(Exception e){
+        }catch(IOException e){
              
         }
            
@@ -67,6 +67,11 @@ public class NoteServlet extends HttpServlet {
           getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
                 .forward(request, response);
           pw.close();
+    }
+    
+    @Override
+    public String getServletInfo(){
+        return "Short description";
     }
 
    
