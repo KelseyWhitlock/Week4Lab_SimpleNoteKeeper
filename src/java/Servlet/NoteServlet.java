@@ -27,6 +27,12 @@ public class NoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String page = request.getParameter("edit");
+        if(page !=null){
+            getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
+                .forward(request, response);
+            
+        }
        
            try{
             String path = getServletContext().getRealPath("/WEB-INF/note.txt");
