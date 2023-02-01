@@ -12,13 +12,14 @@
         <title>Note Edit</title>
     </head>
     <body>
-        <form action="note" method="post">
+        
         <h1>Simple Note Keeper</h1>
         <br>
         <br>
         <h2>Edit Note</h2>
         <br>
         <br>
+        <form action="note" method="post">
         Title: <input type="text" name="title" value="${note.title}">
         <br><br>
         Contents: <textarea name="contents" role="5" cols="25" ${note.contents}> </textarea>
