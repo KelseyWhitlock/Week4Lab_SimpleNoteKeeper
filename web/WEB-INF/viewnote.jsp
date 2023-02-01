@@ -21,7 +21,8 @@
         <h3>Title: ${note.title}</h3>
         <br>
         <br>
-        <h3>Contents: ${note.contents}</h3>
+        <h3>Contents: </h3>
+        <p>${note.contents}</p>
         <a href="note?edit">Edit</a>
     </body>
 </html>

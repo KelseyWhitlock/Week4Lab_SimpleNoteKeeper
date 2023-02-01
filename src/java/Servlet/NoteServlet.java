@@ -23,7 +23,6 @@ import models.Note;
  * @author Kelsey
  */
 public class NoteServlet extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,7 +33,7 @@ public class NoteServlet extends HttpServlet {
             
         }
        
-           try{
+          
             String path = getServletContext().getRealPath("/WEB-INF/note.txt");
             //to read files
             BufferedReader br = new BufferedReader(new FileReader(new File(path)));
@@ -42,11 +41,7 @@ public class NoteServlet extends HttpServlet {
             String contents = br.readLine();
             Note note = new Note(title, contents);
             request.setAttribute("note",note);
-            br.close();
-        }catch(IOException e){
-             
-        }
-           
+            br.close();   
        getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp")
                 .forward(request, response);     
     }
@@ -64,7 +59,7 @@ public class NoteServlet extends HttpServlet {
          pw.print(contents);
           Note note = new Note(title, contents);
           request.setAttribute("note",note);
-          getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
+          getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp")
                 .forward(request, response);
           pw.close();
     }
